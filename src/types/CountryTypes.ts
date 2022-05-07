@@ -15,3 +15,18 @@ export type FetchAllCountriesAction = {
 	type: typeof FETCH_COUNTRIES;
 	payload?: string;
 };
+
+export type FetchAllCountriesSuccess = {
+	type: typeof FETCH_COUNTRIES_SUCCESS;
+	payload: [];
+};
+
+export type FetchAllCountriesFailure = {
+	type: typeof FETCH_COUNTRIES_FAILURE;
+	payload: string;
+};
+
+export type CountryActions =
+	| FetchAllCountriesAction
+	| FetchAllCountriesSuccess
+	| FetchAllCountriesFailure;

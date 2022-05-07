@@ -3,11 +3,9 @@ import thunk from 'redux-thunk';
 
 import rootReducer from './reducers';
 
-const initState = {
-	testName: '',
-};
+const initState = {};
 
-export default function makeStore(InitialState = initState) {
+export default function makeStore(initialState = initState) {
 	const middlewares = [thunk];
 	let composeEnhancers = compose;
 
@@ -20,8 +18,8 @@ export default function makeStore(InitialState = initState) {
 
 	// create redux store
 	const store = createStore(
-		rootReducer,
-		InitialState,
+		rootReducer(),
+		initialState,
 		composeEnhancers(applyMiddleware(...middlewares))
 	);
 
