@@ -1,0 +1,60 @@
+@import '../../styles/base';
+
+.sidebar {
+	background-color: $white;
+
+	&__drawer {
+		min-width: 250px;
+		.MuiDrawer-paperAnchorRight {
+			width: 250px;
+			right: 0;
+			left: auto;
+		}
+	}
+
+	&__drawer-content {
+		@include alignContent(column, center, flex-end);
+		padding-right: 5rem;
+		padding-top: 2.5rem;
+
+		svg.MuiSvgIcon-root {
+			font-size: 5rem;
+			color: $black;
+			cursor: pointer;
+		}
+	}
+
+	&__menuitem {
+		margin-top: 2.5rem;
+		padding-right: 1rem;
+		width: 100%;
+		@include alignContent(column, center, center);
+
+		ul {
+			margin-top: 5rem;
+			width: 100%;
+			li {
+				padding-left: 3rem;
+				margin-bottom: 9rem;
+				@include alignContent(row, space-between, center);
+
+				.blue {
+					background-color: $primary;
+				}
+
+				.red {
+					background-color: $red;
+				}
+
+				.green {
+					background-color: $green;
+				}
+			}
+		}
+	}
+
+	&__color-box {
+		width: 80px;
+		height: 50px;
+	}
+}

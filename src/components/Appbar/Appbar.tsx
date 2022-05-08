@@ -7,7 +7,18 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 import './appbar.scss';
 
-const Appbar = () => {
+interface AppbarProps {
+	onClick: Function;
+	drawerState: boolean;
+}
+
+const Appbar = (props: AppbarProps) => {
+	const { onClick, drawerState } = props;
+
+	const onDrawerClick = () => {
+		onClick(!drawerState);
+	};
+
 	return (
 		<div className="appbar">
 			<div className="appbar__content container">
@@ -32,7 +43,7 @@ const Appbar = () => {
 						<div className="appbar__content-cart-counter">10</div>
 					</div>
 					{/* menu icon */}
-					<MenuIcon />
+					<MenuIcon onClick={onDrawerClick} />
 				</div>
 			</div>
 		</div>
