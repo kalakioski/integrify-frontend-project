@@ -1,0 +1,14 @@
+@import '../../styles/base';
+
+.search-box {
+	height: 50px;
+	padding: 1rem 3rem;
+	@include alignContent(row, center, center);
+	&__wrapper {
+		@include alignContent(row, center, center);
+		svg.MuiSvgIcon-root {
+			font-size: 4rem;
+			color: $black;
+		}
+	}
+}
