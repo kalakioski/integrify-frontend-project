@@ -1,0 +1,44 @@
+@import '../../styles/base';
+
+.cart-menu {
+  &__menu {
+    .MuiPaper-root.MuiMenu-paper.MuiPopover-paper.MuiPaper-elevation8.MuiPaper-rounded {
+      width: 450px;
+      padding: 5rem;
+      position: absolute;
+      top: 60px !important;
+
+      h2 {
+        color: $blacklight;
+      }
+    }
+  }
+
+  &__menu-list {
+    margin-top: 8rem;
+  }
+
+  &__item {
+    @include alignContent(row, space-between, center);
+    border-bottom: 1px $blacklight solid;
+    padding: 2rem 0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    svg.MuiSvgIcon-root {
+      font-size: 4rem;
+      color: $blacklight;
+      cursor: pointer;
+    }
+
+    img {
+      max-width: 100px;
+      max-width: 60px;
+    }
+    h2 {
+      color: $blacklight;
+    }
+  }
+}
