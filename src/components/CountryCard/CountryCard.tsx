@@ -7,11 +7,12 @@ type CountryCardProps = {
   flag: string;
   name: string;
   region: string;
+  onClick: Function;
 };
 
-const CountryCard = ({ flag, name, region }: CountryCardProps) => {
+const CountryCard = ({ flag, name, region, onClick }: CountryCardProps) => {
   return (
-    <div className="country-card">
+    <div className="country-card" key={name}>
       <div className="country-card__wrapper">
         <div className="country-card__innerwrapper">
           <img src={flag} alt={name} />
@@ -23,7 +24,9 @@ const CountryCard = ({ flag, name, region }: CountryCardProps) => {
           <h3 className="country-card__region">{region}</h3>
         </div>
         <div className="country-card__innerwrapper">
-          <Button className="button">Add to cart</Button>
+          <Button className="button" onClick={() => onClick()}>
+            Add to cart
+          </Button>
         </div>
       </div>
     </div>

@@ -1,9 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import Search from '../Search/Search';
 
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MenuIcon from '@mui/icons-material/Menu';
+
+import { AppState } from '../../types';
 
 import './appbar.scss';
 
@@ -14,6 +17,9 @@ interface AppbarProps {
 
 const Appbar = (props: AppbarProps) => {
   const { onClick, drawerState } = props;
+
+  // Cart
+  const cart = useSelector((state: AppState) => state.cartReducer.cart);
 
   const onDrawerClick = () => {
     onClick(!drawerState);
@@ -40,7 +46,9 @@ const Appbar = (props: AppbarProps) => {
           <div className="appbar__content-cart">
             <ShoppingCartIcon />
             {/* cart counter component */}
-            <div className="appbar__content-cart-counter">10</div>
+            <div className="appbar__content-cart-counter">
+              {cart && cart.length}
+            </div>
           </div>
           {/* menu icon */}
           <MenuIcon onClick={onDrawerClick} />

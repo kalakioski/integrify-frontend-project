@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '../..';
 
-import { fetchAllCountries } from '../../redux/actions';
+import { fetchAllCountries, addCountryToCart } from '../../redux/actions';
 import { AppState } from '../../types';
 
 import CountryCard from '../CountryCard/CountryCard';
@@ -37,7 +37,12 @@ const CountryList = () => {
 
         {!isLoading &&
           countries &&
-          countries.map((country) => <CountryCard {...country} />)}
+          countries.map((country) => (
+            <CountryCard
+              {...country}
+              onClick={() => dispatch(addCountryToCart(country))}
+            />
+          ))}
       </div>
     </div>
   );
