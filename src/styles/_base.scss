@@ -27,8 +27,8 @@ $font-weights: (
 
 // all variables
 
-$primary: #2196f3;
-$primaryhover: #0043c0;
+$primary: var(--primary-color);
+$primaryhover: var(--primary-color-hover);
 $black: #212121;
 $grey: #bdbdbd;
 $white: #eeeeee;
@@ -38,13 +38,14 @@ $green: #66bb6a;
 
 $font-family: 'Rubik', sans-serif;
 
-// global
-
 $max-width: 1040px;
 :root {
   font-size: 8px;
   font-weight: weight(regular);
   font-family: $font-family;
+
+  --primary-color: #2196f3;
+  --primary-color-hover: #0043c0;
 }
 
 .container {

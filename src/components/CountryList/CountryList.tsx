@@ -57,8 +57,9 @@ const CountryList = ({ searchKeyword }: CountryListProps) => {
 
         {!isLoading &&
           filteredCountries &&
-          filteredCountries.map((country) => (
+          filteredCountries.map((country: any) => (
             <CountryCard
+              key={country.name}
               {...country}
               disabled={cart.includes(country)}
               onClick={() => dispatch(addCountryToCart(country))}
