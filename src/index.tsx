@@ -9,11 +9,13 @@ import App from './App';
 
 const store = makeStore();
 
+export type AppDispatch = typeof store.dispatch;
+
 ReactDOM.render(
-	<Provider store={store}>
-		<Router>
-			<App />
-		</Router>
-	</Provider>,
-	document.getElementById('root')
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
+  document.getElementById('root')
 );

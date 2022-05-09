@@ -7,22 +7,22 @@
 // functions
 
 @function weight($weight-name) {
-	@return map-get($font-weights, $weight-name);
+  @return map-get($font-weights, $weight-name);
 }
 
 @mixin alignContent($direction, $justifyContent, $alignItems) {
-	display: flex;
-	justify-content: $justifyContent;
-	align-items: $alignItems;
-	flex-direction: $direction;
+  display: flex;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+  flex-direction: $direction;
 }
 
 // font weight
 
 $font-weights: (
-	'regular': 400,
-	'medium': 500,
-	'bold': 700,
+  'regular': 400,
+  'medium': 500,
+  'bold': 700,
 );
 
 // all variables
@@ -42,14 +42,14 @@ $font-family: 'Rubik', sans-serif;
 
 $max-width: 1040px;
 :root {
-	font-size: 8px;
-	font-weight: weight(regular);
-	font-family: $font-family;
+  font-size: 8px;
+  font-weight: weight(regular);
+  font-family: $font-family;
 }
 
 .container {
-	max-width: $max-width;
-	margin: auto;
+  max-width: $max-width;
+  margin: auto;
 }
 
 // typography
@@ -57,15 +57,20 @@ $max-width: 1040px;
 h1 {
 }
 h2 {
-	font-size: 3rem;
-	font-family: $font-family;
-	font-weight: weight(regular);
+  font-size: 2.5rem;
+  font-family: $font-family;
+  font-weight: weight(regular);
+}
+h3 {
+  font-size: 2rem;
+  font-family: $font-family;
+  font-weight: weight(regular);
 }
 
 // override material ui styles
 
 .MuiInput-root {
-	font-family: $font-family !important;
-	color: $black !important;
-	font-size: 2rem !important;
+  font-family: $font-family !important;
+  color: $black !important;
+  font-size: 2rem !important;
 }

@@ -1,0 +1,44 @@
+@import '../../styles/base';
+
+.country-card {
+  padding: 10px 0;
+  &__wrapper {
+    @include alignContent(row, space-between, center);
+    padding: 0 300px;
+    width: 100%;
+
+    img {
+      max-width: 150px;
+      height: 100px;
+    }
+  }
+
+  &__innerwrapper {
+    @include alignContent(row, center, center);
+    width: 100%;
+  }
+
+  &__name {
+    color: $black;
+  }
+
+  &__region {
+    color: $black;
+  }
+
+  &__language {
+    color: $black;
+  }
+
+  .button {
+    background-color: $primary;
+    color: $black;
+    font-family: $font-family;
+    letter-spacing: 1px;
+
+    &:hover {
+      background-color: $primaryhover;
+      color: $white;
+    }
+  }
+}
