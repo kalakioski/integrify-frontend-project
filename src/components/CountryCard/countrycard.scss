@@ -23,11 +23,7 @@
   }
 
   &__region {
-    color: $black;
-  }
-
-  &__language {
-    color: $black;
+    color: $blacklight;
   }
 
   .button {
@@ -35,6 +31,9 @@
     color: $black;
     font-family: $font-family;
     letter-spacing: 1px;
+    &:disabled {
+      background-color: $grey;
+    }
 
     &:hover {
       background-color: $primaryhover;

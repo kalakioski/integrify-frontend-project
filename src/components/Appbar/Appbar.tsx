@@ -13,10 +13,11 @@ import './appbar.scss';
 interface AppbarProps {
   onClick: Function;
   drawerState: boolean;
+  handleSearchKeyword: Function;
 }
 
 const Appbar = (props: AppbarProps) => {
-  const { onClick, drawerState } = props;
+  const { onClick, drawerState, handleSearchKeyword } = props;
 
   // Cart
   const cart = useSelector((state: AppState) => state.cartReducer.cart);
@@ -28,7 +29,6 @@ const Appbar = (props: AppbarProps) => {
   //Cart menu open state and functions
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const menuOpen = Boolean(anchorEl);
-  console.log(menuOpen);
 
   const handleCartMenuClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -51,7 +51,7 @@ const Appbar = (props: AppbarProps) => {
         {/* Search box area */}
         <div className="appbar__content-search">
           {/* Search component */}
-          <Search />
+          <Search handleSearchKeyword={handleSearchKeyword} />
         </div>
         {/* right side area */}
         <div className="appbar__content-right">

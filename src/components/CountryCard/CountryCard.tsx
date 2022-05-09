@@ -8,9 +8,16 @@ type CountryCardProps = {
   name: string;
   region: string;
   onClick: Function;
+  disabled: boolean;
 };
 
-const CountryCard = ({ flag, name, region, onClick }: CountryCardProps) => {
+const CountryCard = ({
+  flag,
+  name,
+  region,
+  onClick,
+  disabled,
+}: CountryCardProps) => {
   return (
     <div className="country-card" key={name}>
       <div className="country-card__wrapper">
@@ -24,7 +31,11 @@ const CountryCard = ({ flag, name, region, onClick }: CountryCardProps) => {
           <h3 className="country-card__region">{region}</h3>
         </div>
         <div className="country-card__innerwrapper">
-          <Button className="button" onClick={() => onClick()}>
+          <Button
+            className="button"
+            disabled={disabled}
+            onClick={() => onClick()}
+          >
             Add to cart
           </Button>
         </div>

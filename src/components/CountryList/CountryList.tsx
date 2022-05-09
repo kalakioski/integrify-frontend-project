@@ -7,16 +7,36 @@ import { AppState } from '../../types';
 
 import CountryCard from '../CountryCard/CountryCard';
 
-const CountryList = () => {
-  // Get all countries from redux state
+type CountryListProps = {
+  searchKeyword: string;
+};
 
+const CountryList = ({ searchKeyword }: CountryListProps) => {
+  // Get all countries from redux state
   const countries = useSelector(
     (state: AppState) => state.countryReducer.countries
   );
-
   const isLoading = useSelector(
     (state: AppState) => state.countryReducer.isLoading
   );
+
+  // Cart state
+  const cart = useSelector((state: AppState) => state.cartReducer.cart);
+
+  // Filter countries
+  const [filteredCountries, setFilteredCountries] = React.useState(countries);
+
+  React.useEffect(() => {
+    setFilteredCountries(countries);
+  }, [countries]);
+
+  // Filter country by keyword
+  React.useEffect(() => {
+    const tempCountries: [] = countries.filter((country: any) =>
+      country.name.toLowerCase().includes(searchKeyword?.toLowerCase())
+    ) as [];
+    setFilteredCountries(tempCountries);
+  }, [searchKeyword, countries]);
 
   // Initialize dispatch
   const dispatch = useDispatch<AppDispatch>();
@@ -36,10 +56,11 @@ const CountryList = () => {
         {isLoading && <h2>Loading...</h2>}
 
         {!isLoading &&
-          countries &&
-          countries.map((country) => (
+          filteredCountries &&
+          filteredCountries.map((country) => (
             <CountryCard
               {...country}
+              disabled={cart.includes(country)}
               onClick={() => dispatch(addCountryToCart(country))}
             />
           ))}

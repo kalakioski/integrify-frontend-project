@@ -16,6 +16,14 @@ const Home = () => {
   // Initialize dispatch
   const dispatch = useDispatch<AppDispatch>();
 
+  // Search keyword
+  const [searchKeyword, setSearchKeyword] = React.useState('');
+
+  // Update search keyword
+  const handleSearchKeyword = (value: string) => {
+    setSearchKeyword(value);
+  };
+
   // Dispatch fetchAllCountries when page loads
   React.useEffect(() => {
     dispatch(fetchAllCountries());
@@ -29,11 +37,15 @@ const Home = () => {
   return (
     <div className="home">
       {/* appbar component */}
-      <Appbar onClick={handleDrawerState} drawerState={drawerState} />
+      <Appbar
+        onClick={handleDrawerState}
+        drawerState={drawerState}
+        handleSearchKeyword={handleSearchKeyword}
+      />
       {/* Sidebar */}
       <Sidebar onClick={handleDrawerState} drawerState={drawerState} />
       {/* Country list container */}
-      <CountryList />
+      <CountryList searchKeyword={searchKeyword} />
     </div>
   );
 };
