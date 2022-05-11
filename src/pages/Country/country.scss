@@ -39,6 +39,7 @@
   &__details {
     @include alignContent(column, center, center);
     border: 2px $blacklight solid;
+    border-radius: 10px;
     padding: 50px 200px;
   }
 
