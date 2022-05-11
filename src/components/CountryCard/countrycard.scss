@@ -2,11 +2,16 @@
 
 .country-card {
   padding: 10px 0;
+  @include alignContent(row, center, center);
+
+  &__container {
+    @include alignContent(row, space-between, center);
+    width: 60%;
+  }
+
   &__wrapper {
     @include alignContent(row, space-between, center);
-    padding: 0 300px;
-    width: 100%;
-
+    width: 900px;
     img {
       max-width: 150px;
       height: 100px;
@@ -14,8 +19,8 @@
   }
 
   &__innerwrapper {
-    @include alignContent(row, center, center);
-    width: 100%;
+    @include alignContent(row, flex-start, center);
+    width: 200px;
   }
 
   &__name {

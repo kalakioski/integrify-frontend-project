@@ -1,9 +1,4 @@
-import {
-  UPDATE_SEARCH_KEYWORD,
-  UiReducerState,
-  UiActions,
-  SetSearchKeywordAction,
-} from '../../types';
+import { UiReducerState, UiActions } from '../../types';
 
 // Initial state
 

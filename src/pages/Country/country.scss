@@ -1,0 +1,54 @@
+@import '../../styles/base';
+
+.country-page {
+  .button {
+    background-color: $primary;
+    color: $black;
+    font-family: $font-family;
+    letter-spacing: 1px;
+
+    &:disabled {
+      background-color: $grey;
+    }
+
+    &:hover {
+      background-color: $primaryhover;
+      color: $white;
+    }
+
+    &__return {
+      margin-left: 100px;
+      padding-top: 20px;
+    }
+
+    &__add-to-cart {
+      padding-top: 20px;
+    }
+  }
+
+  &__wrapper {
+    @include alignContent(row, center, center);
+    width: 100%;
+
+    img {
+      height: 200px;
+      width: 300px;
+    }
+  }
+
+  &__details {
+    @include alignContent(column, center, center);
+    border: 2px $blacklight solid;
+    padding: 50px 200px;
+  }
+
+  &__details-left {
+    @include alignContent(column, space-evenly, center);
+    height: 300px;
+  }
+
+  &__details-right {
+    @include alignContent(column, space-evenly, flex-start);
+    height: 200px;
+  }
+}

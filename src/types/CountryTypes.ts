@@ -1,5 +1,3 @@
-import { SvgIconClassKey } from '@mui/material';
-
 // reducer case constants
 export const FETCH_COUNTRIES_LOADING = 'FETCH_COUNTRIES_LOADING';
 export const FETCH_COUNTRIES_SUCCESS = 'FETCH_COUNTRIES_SUCCESS';
@@ -7,12 +5,12 @@ export const FETCH_COUNTRIES_FAILURE = 'FETCH_COUNTRIES_FAILURE';
 
 // types
 export type CountryReducerState = {
-  countries: Country[];
+  countries: CountryState[];
   isLoading: boolean;
   error: string;
 };
 
-export type Country = {
+export type CountryState = {
   flag: string;
   name: string;
   nativeName: string;

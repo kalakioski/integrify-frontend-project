@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '../..';
 
 import { fetchAllCountries, addCountryToCart } from '../../redux/actions';
-import { AppState, Country } from '../../types';
+import { AppState } from '../../types';
 
 import CountryCard from '../CountryCard/CountryCard';
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import Search from '../Search/Search';
 import CartMenu from '../CartMenu/CartMenu';
@@ -42,10 +43,12 @@ const Appbar = (props: AppbarProps) => {
       <div className="appbar__content">
         {/* Logo area */}
         <div className="appbar__content-left">
-          <img
-            src={process.env.PUBLIC_URL + '/images/LOGO.svg'}
-            alt="country app logo"
-          />
+          <Link to={`/`}>
+            <img
+              src={process.env.PUBLIC_URL + '/images/LOGO.svg'}
+              alt="country app logo"
+            />
+          </Link>
         </div>
         {/* Search box area */}
         <div className="appbar__content-search">

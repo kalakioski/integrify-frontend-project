@@ -1,5 +1,3 @@
-import { setSeachKeyword } from '../redux/actions/UiAction';
-
 export const UPDATE_SEARCH_KEYWORD = 'UPDATE_SEARCH_KEYWORD';
 
 export type UiReducerState = {

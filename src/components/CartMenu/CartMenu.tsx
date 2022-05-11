@@ -35,7 +35,7 @@ const CartMenu = ({ cart, onClick, menuOpen, anchorEl }: CartMenuProps) => {
         <div className="cart-menu__menu-list">
           {/* Each country item */}
 
-          {cart.length == 0 && (
+          {cart.length === 0 && (
             <div className="cart-menu__empty">
               <h3>No items in the cart</h3>
             </div>

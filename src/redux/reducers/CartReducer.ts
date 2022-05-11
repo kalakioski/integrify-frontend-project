@@ -1,14 +1,14 @@
-import {
-  ADD_COUNTRY_TO_CART,
-  REMOVE_COUNTRY_FROM_CART,
-  CartActions,
-  CartReducerState,
-} from '../../types';
+import { CartReducerState } from '../../types';
 
 // Initial state
+const cartFormLocal = localStorage.getItem('cart');
+let initialCart: [] = [];
+if (cartFormLocal) {
+  initialCart = JSON.parse(cartFormLocal);
+}
 
 const InitialState: CartReducerState = {
-  cart: [],
+  cart: initialCart,
 };
 
 // Cart reducer function
@@ -20,6 +20,10 @@ export default function cartReducer(
   switch (action.type) {
     case 'ADD_COUNTRY_TO_CART': {
       const country = action.payload;
+
+      //save cart country to local storage
+      const cartCountry = [...state.cart, country];
+      localStorage.setItem('cart', JSON.stringify(cartCountry));
       return {
         ...state,
         cart: [...state.cart, country],
@@ -31,6 +35,8 @@ export default function cartReducer(
       const tempCart = state.cart.filter(
         (country) => country !== payloadCountry
       );
+      const cartCountry = [...tempCart];
+      localStorage.setItem('cart', JSON.stringify(cartCountry));
       return {
         ...state,
         cart: [...tempCart],

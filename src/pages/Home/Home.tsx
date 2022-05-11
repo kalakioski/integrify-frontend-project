@@ -5,7 +5,6 @@ import CountryList from '../../components/CountryList/CountryList';
 
 import { fetchAllCountries } from '../../redux/actions';
 
-import './home.scss';
 import { AppDispatch } from '../..';
 
 const Home = () => {
