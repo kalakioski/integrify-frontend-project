@@ -3,15 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '../..';
 
 import { fetchAllCountries, addCountryToCart } from '../../redux/actions';
-import { AppState } from '../../types';
+import { AppState, Country } from '../../types';
 
 import CountryCard from '../CountryCard/CountryCard';
 
-type CountryListProps = {
-  searchKeyword: string;
-};
-
-const CountryList = ({ searchKeyword }: CountryListProps) => {
+const CountryList = () => {
   // Get all countries from redux state
   const countries = useSelector(
     (state: AppState) => state.countryReducer.countries
@@ -31,6 +27,9 @@ const CountryList = ({ searchKeyword }: CountryListProps) => {
   }, [countries]);
 
   // Filter country by keyword
+  const searchKeyword = useSelector(
+    (state: AppState) => state.uiReducer.searchKeyword
+  );
   React.useEffect(() => {
     const tempCountries: [] = countries.filter((country: any) =>
       country.name.toLowerCase().includes(searchKeyword?.toLowerCase())
@@ -57,7 +56,7 @@ const CountryList = ({ searchKeyword }: CountryListProps) => {
 
         {!isLoading &&
           filteredCountries &&
-          filteredCountries.map((country: any) => (
+          filteredCountries.map((country) => (
             <CountryCard
               key={country.name}
               {...country}

@@ -13,11 +13,10 @@ import './appbar.scss';
 interface AppbarProps {
   onClick: Function;
   drawerState: boolean;
-  handleSearchKeyword: Function;
 }
 
 const Appbar = (props: AppbarProps) => {
-  const { onClick, drawerState, handleSearchKeyword } = props;
+  const { onClick, drawerState } = props;
 
   // Cart
   const cart = useSelector((state: AppState) => state.cartReducer.cart);
@@ -51,7 +50,7 @@ const Appbar = (props: AppbarProps) => {
         {/* Search box area */}
         <div className="appbar__content-search">
           {/* Search component */}
-          <Search handleSearchKeyword={handleSearchKeyword} />
+          <Search />
         </div>
         {/* right side area */}
         <div className="appbar__content-right">

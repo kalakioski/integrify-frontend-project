@@ -6,18 +6,15 @@ import SearchIcon from '@mui/icons-material/Search';
 
 import { AppDispatch } from '../..';
 
+import { setSeachKeyword } from '../../redux/actions';
 import './search.scss';
 
-type SearchProps = {
-  handleSearchKeyword: Function;
-};
-
-const Search = ({ handleSearchKeyword }: SearchProps) => {
+const Search = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   // Handle input change
   const handleInputChange = (e: any) => {
-    handleSearchKeyword(e.target.value);
+    dispatch(setSeachKeyword(e.target.value));
   };
 
   return (
