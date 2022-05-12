@@ -1,6 +1,7 @@
 @import '../../styles/base';
 
 .country-page {
+  padding-bottom: 20px;
   .button {
     background-color: $primary;
     color: $black;
@@ -50,6 +51,6 @@
 
   &__details-right {
     @include alignContent(column, space-evenly, flex-start);
-    height: 200px;
+    height: 400px;
   }
 }

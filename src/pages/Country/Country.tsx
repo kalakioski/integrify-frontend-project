@@ -68,7 +68,7 @@ const Country = () => {
                 <h2>
                   Languages:{' '}
                   {currentCountry.languages.map((language) => (
-                    <span key={language.name}>{language.name} &nbsp;</span>
+                    <li key={language.name}>{language.name} &nbsp;</li>
                   ))}
                 </h2>
               </div>
